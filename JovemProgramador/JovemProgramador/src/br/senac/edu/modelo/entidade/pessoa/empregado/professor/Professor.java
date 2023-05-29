@@ -4,12 +4,15 @@ package br.senac.edu.modelo.entidade.pessoa.empregado.professor;
 import br.senac.edu.modelo.entidade.pessoa.empregado.Empregado;
 import br.senac.edu.modelo.entidade.turma.Turma;
 import br.senac.edu.modelo.enumeracao.gestor.Status;
+import br.senac.edu.modelo.excecao.pessoa.CPFInvalidoException;
+import br.senac.edu.modelo.excecao.pessoa.IdadeInvalidaException;
+import br.senac.edu.modelo.excecao.pessoa.NomeInvalidoException;
 
 public class Professor extends Empregado {
 
 	private Turma turma;
 
-	public Professor(String nome, byte idade, String cpf, Turma turma, String ctps, float valorHora, Status status) {
+	public Professor(String nome, byte idade, String cpf, Turma turma, String ctps, float valorHora, Status status) throws IdadeInvalidaException, NomeInvalidoException, CPFInvalidoException {
 		super(nome, idade, cpf, ctps, valorHora,status);
 		setTurma(turma);
 	}

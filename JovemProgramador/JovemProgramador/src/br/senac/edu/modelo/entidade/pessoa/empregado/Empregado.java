@@ -2,13 +2,16 @@ package br.senac.edu.modelo.entidade.pessoa.empregado;
 
 import br.senac.edu.modelo.entidade.pessoa.Pessoa;
 import br.senac.edu.modelo.enumeracao.gestor.Status;
+import br.senac.edu.modelo.excecao.pessoa.CPFInvalidoException;
+import br.senac.edu.modelo.excecao.pessoa.IdadeInvalidaException;
+import br.senac.edu.modelo.excecao.pessoa.NomeInvalidoException;
 
 public abstract class Empregado extends Pessoa {
 	private String ctps;
 	private float valorHora;
 	private Status status;
 	
-	protected Empregado(String nome, byte idade, String cpf, String ctps, float valorHora, Status status) {
+	protected Empregado(String nome, byte idade, String cpf, String ctps, float valorHora, Status status) throws IdadeInvalidaException, NomeInvalidoException, CPFInvalidoException {
 		super(nome, idade, cpf);
 		setCtps(ctps);
 		setValorHora(valorHora);
